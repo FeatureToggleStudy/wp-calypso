@@ -15,7 +15,11 @@ import { useLocalizedMoment } from 'components/localized-moment';
  */
 import './stored-card.scss';
 
-export const getCreditCardSummary = ( translate, type, digits ) => {
+export const getCreditCardSummary = (
+	translate: ReturnType< typeof useTranslate >,
+	type: string,
+	digits?: Props['lastDigits']
+) => {
 	const supportedTypes = {
 		'american express': translate( 'American Express' ),
 		amex: translate( 'American Express' ),
@@ -27,7 +31,10 @@ export const getCreditCardSummary = ( translate, type, digits ) => {
 		visa: translate( 'VISA' ),
 	};
 
-	const displayType = supportedTypes[ type && type.toLowerCase() ] || type;
+	const displayType =
+		( supportedTypes as typeof supportedTypes & { [k: string]: undefined } )[
+			type && type.toLowerCase()
+		] || type;
 	if ( ! digits ) {
 		return displayType;
 	}

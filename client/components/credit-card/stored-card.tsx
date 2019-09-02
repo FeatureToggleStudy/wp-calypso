@@ -1,9 +1,8 @@
 /**
  * External dependencies
  */
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { useTranslate } from 'i18n-calypso';
 
 /**
@@ -38,7 +37,14 @@ export const getCreditCardSummary = ( translate, type, digits ) => {
 	} );
 };
 
-const StoredCard = ( { lastDigits, cardType, name, expiry } ) => {
+interface Props {
+	lastDigits?: string;
+	cardType: string;
+	name: string;
+	expiry?: string;
+}
+
+const StoredCard: FunctionComponent< Props > = ( { lastDigits, cardType, name, expiry } ) => {
 	const translate = useTranslate();
 	const moment = useLocalizedMoment();
 
@@ -71,13 +77,6 @@ const StoredCard = ( { lastDigits, cardType, name, expiry } ) => {
 			</span>
 		</div>
 	);
-};
-
-StoredCard.propTypes = {
-	lastDigits: PropTypes.string,
-	cardType: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	expiry: PropTypes.string,
 };
 
 export default StoredCard;

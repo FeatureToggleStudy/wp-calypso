@@ -4,8 +4,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { flowRight as compose } from 'lodash';
-import { localize } from 'i18n-calypso';
+import { useTranslate } from 'i18n-calypso';
 
 /**
  * Internal dependencies
@@ -39,7 +38,9 @@ export const getCreditCardSummary = ( translate, type, digits ) => {
 	} );
 };
 
-const StoredCard = ( { lastDigits, cardType, name, expiry, translate, moment } ) => {
+const StoredCard = ( { lastDigits, cardType, name, expiry, moment } ) => {
+	const translate = useTranslate();
+
 	// The use of `MM/YY` should not be localized as it is an ISO standard across credit card forms: https://en.wikipedia.org/wiki/ISO/IEC_7813
 	const expirationDate = expiry ? moment( expiry ).format( 'MM/YY' ) : null;
 
@@ -78,7 +79,4 @@ StoredCard.propTypes = {
 	expiry: PropTypes.string,
 };
 
-export default compose(
-	localize,
-	withLocalizedMoment
-)( StoredCard );
+export default withLocalizedMoment( StoredCard );

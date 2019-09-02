@@ -9,7 +9,7 @@ import { useTranslate } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { withLocalizedMoment } from 'components/localized-moment';
+import { useLocalizedMoment } from 'components/localized-moment';
 
 /**
  * Style dependencies
@@ -38,8 +38,9 @@ export const getCreditCardSummary = ( translate, type, digits ) => {
 	} );
 };
 
-const StoredCard = ( { lastDigits, cardType, name, expiry, moment } ) => {
+const StoredCard = ( { lastDigits, cardType, name, expiry } ) => {
 	const translate = useTranslate();
+	const moment = useLocalizedMoment();
 
 	// The use of `MM/YY` should not be localized as it is an ISO standard across credit card forms: https://en.wikipedia.org/wiki/ISO/IEC_7813
 	const expirationDate = expiry ? moment( expiry ).format( 'MM/YY' ) : null;
@@ -79,4 +80,4 @@ StoredCard.propTypes = {
 	expiry: PropTypes.string,
 };
 
-export default withLocalizedMoment( StoredCard );
+export default StoredCard;

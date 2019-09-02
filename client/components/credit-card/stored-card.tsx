@@ -15,7 +15,7 @@ import { useLocalizedMoment } from 'components/localized-moment';
  */
 import './stored-card.scss';
 
-export const getCreditCardSummary = (
+const getCreditCardSummary = (
 	translate: ReturnType< typeof useTranslate >,
 	type: string,
 	digits?: Props['lastDigits']

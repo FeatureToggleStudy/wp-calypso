@@ -2,9 +2,9 @@
  * External dependencies
  */
 import { __ as NO__ } from '@wordpress/i18n';
-import { SelectControl } from '@wordpress/components';
+import { FormTokenField, SelectControl } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 /**
  * Internal dependencies
@@ -14,11 +14,19 @@ import { STORE_KEY } from '../store';
 import './style.scss';
 
 export default function OnboardingEdit() {
+	const [ vertical, setVertical ] = useState( '' );
 	const { siteTitle, siteType } = useSelect( select => select( STORE_KEY ).getState() );
+	const verticals = useSelect( select => select( STORE_KEY ).getVertical( vertical ) );
 	const { setSiteType, setSiteTitle } = useDispatch( STORE_KEY );
+
 	const handleTitleChange = useCallback(
 		( e: React.ChangeEvent< HTMLInputElement > ) => setSiteTitle( e.target.value ),
 		[ setSiteTitle ]
+	);
+
+	const verticalSuggestions = useMemo(
+		() => ( verticals ? verticals.map( v => v.vertical_name ) : [] ),
+		[ verticals ]
 	);
 
 	/* eslint-disable wpcalypso/jsx-classname-namespace */
@@ -41,6 +49,12 @@ export default function OnboardingEdit() {
 					className="onboarding__question-input"
 				/>
 			</label>
+			<FormTokenField
+				value={ vertical }
+				suggestions={ verticalSuggestions }
+				onChange={ v => setVertical( v ) }
+				placeholder="What do you want?"
+			/>
 			{ ( siteType || siteTitle ) && (
 				<label className="onboarding__question">
 					<span>{ NO__( "It's called" ) }</span>

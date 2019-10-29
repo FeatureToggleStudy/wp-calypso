@@ -4,7 +4,6 @@
 import { __ as NO__ } from '@wordpress/i18n';
 import { Button, IconButton } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
-
 import React from 'react';
 import shortcuts from '@wordpress/edit-post/build-module/keyboard-shortcuts';
 

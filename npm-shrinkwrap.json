@@ -112,7 +112,19 @@
 			"requires": {
 				"prop-types": "^15.7.2",
 				"react": "^16.8.6",
+				"react-stripe-elements": "^5.1.0",
 				"styled-components": "4.4.0"
+			},
+			"dependencies": {
+				"react-stripe-elements": {
+					"version": "5.1.0",
+					"resolved": "https://registry.npmjs.org/react-stripe-elements/-/react-stripe-elements-5.1.0.tgz",
+					"integrity": "sha512-4UlzOLNdbJsZr4JwbTdJjxhedAfalDDtfEYLHEBo0MKG0KgSLRAeIJup0/6NSpKtBLK4ieOMAwvyln9ICOSilQ==",
+					"dev": true,
+					"requires": {
+						"prop-types": "15.7.2"
+					}
+				}
 			}
 		},
 		"@automattic/format-currency": {
@@ -1028,6 +1040,13 @@
 			"requires": {
 				"core-js": "^2.6.5",
 				"regenerator-runtime": "^0.13.2"
+			},
+			"dependencies": {
+				"core-js": {
+					"version": "2.6.10",
+					"resolved": "https://registry.npmjs.org/core-js/-/core-js-2.6.10.tgz",
+					"integrity": "sha512-I39t74+4t+zau64EN1fE5v2W31Adtc/REhzWN+gWRRXg6WH5qAsZm62DHpQ1+Yhe4047T55jvzz7MUqF/dBBlA=="
+				}
 			}
 		},
 		"@babel/preset-env": {
@@ -5031,6 +5050,11 @@
 				"regenerator-runtime": "^0.11.0"
 			},
 			"dependencies": {
+				"core-js": {
+					"version": "2.6.10",
+					"resolved": "https://registry.npmjs.org/core-js/-/core-js-2.6.10.tgz",
+					"integrity": "sha512-I39t74+4t+zau64EN1fE5v2W31Adtc/REhzWN+gWRRXg6WH5qAsZm62DHpQ1+Yhe4047T55jvzz7MUqF/dBBlA=="
+				},
 				"regenerator-runtime": {
 					"version": "0.11.1",
 					"resolved": "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz",
@@ -7311,9 +7335,9 @@
 			"integrity": "sha1-Z29us8OZl8LuGsOpJP1hJHSPV40="
 		},
 		"core-js": {
-			"version": "2.6.10",
-			"resolved": "https://registry.npmjs.org/core-js/-/core-js-2.6.10.tgz",
-			"integrity": "sha512-I39t74+4t+zau64EN1fE5v2W31Adtc/REhzWN+gWRRXg6WH5qAsZm62DHpQ1+Yhe4047T55jvzz7MUqF/dBBlA=="
+			"version": "3.3.6",
+			"resolved": "https://registry.npmjs.org/core-js/-/core-js-3.3.6.tgz",
+			"integrity": "sha512-u4oM8SHwmDuh5mWZdDg9UwNVq5s1uqq6ZDLLIs07VY+VJU91i3h4f3K/pgFvtUQPGdeStrZ+odKyfyt4EnKHfA=="
 		},
 		"core-js-compat": {
 			"version": "3.3.3",
@@ -19833,6 +19857,11 @@
 						"select": "^1.1.2",
 						"tiny-emitter": "^2.0.0"
 					}
+				},
+				"core-js": {
+					"version": "2.6.10",
+					"resolved": "https://registry.npmjs.org/core-js/-/core-js-2.6.10.tgz",
+					"integrity": "sha512-I39t74+4t+zau64EN1fE5v2W31Adtc/REhzWN+gWRRXg6WH5qAsZm62DHpQ1+Yhe4047T55jvzz7MUqF/dBBlA=="
 				},
 				"prismjs": {
 					"version": "1.6.0",

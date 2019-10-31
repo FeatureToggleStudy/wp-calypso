@@ -361,6 +361,7 @@ export class UserStep extends Component {
 				isSocialSignupEnabled={ isSocialSignupEnabled }
 				socialService={ socialService }
 				socialServiceResponse={ socialServiceResponse }
+				showReCaptchaToS={ true }
 			/>
 		);
 	}

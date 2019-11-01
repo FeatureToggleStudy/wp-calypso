@@ -13,10 +13,10 @@ import {
 /**
  * Internal dependencies
  */
-import { useCheckoutLineItems } from './cart-manager';
+import { useLineItems } from '../../public-api';
 
 export function OrderReview( { onDeleteItem, onChangePlanLength } ) {
-	const { items, total } = useCheckoutLineItems();
+	const [ items, total ] = useLineItems();
 	const planItems = items.filter( item => item.type === 'plan' );
 	const domainItems = items.filter( item => item.type === 'domain' );
 	const taxItems = items.filter( item => item.type === 'tax' );
@@ -49,7 +49,7 @@ export function OrderReview( { onDeleteItem, onChangePlanLength } ) {
 }
 
 export function OrderReviewCollapsed() {
-	const { items, total } = useCheckoutLineItems();
+	const [ items, total ] = useLineItems();
 	const planItems = items.filter( item => item.type === 'plan' );
 	const domainItems = items.filter( item => item.type === 'domain' );
 	const miscItems = items.filter( item => ! [ 'plan', 'domain', 'tax' ].includes( item.type ) );

@@ -26,8 +26,9 @@ const initialItems = [
 ];
 
 // This is a simple shopping cart manager which allows CRUD operations
-export function useCheckoutLineItems() {
+export function useShoppingCart() {
 	const [ items, setItems ] = useState( initialItems );
+	console.log( items );
 
 	// Tax calculation must be performed outside checkout
 	const lineItemTotalWithoutTax = items.reduce( ( sum, item ) => sum + item.amount.value, 0 );
@@ -46,8 +47,13 @@ export function useCheckoutLineItems() {
 	const itemsWithTax = [ ...items, taxItem ];
 
 	// The checkout itself does not trigger any events apart from success/failure
-	const deleteItem = itemToDelete =>
-		setItems( items.filter( item => item.id !== itemToDelete.id ) );
+	const deleteItem = itemToDelete => {
+		setItems(
+			items.filter( item => {
+				return item.id !== itemToDelete.id;
+			} )
+		);
+	};
 	const changePlanLength = ( plan, planLength ) =>
 		setItems( replacePlanWithDifferentLength( items, planLength ) );
 	const updatePricesForAddress = address =>

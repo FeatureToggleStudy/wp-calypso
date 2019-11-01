@@ -74,10 +74,11 @@ function getAnnualPrice( cost, currencyCode ) {
 }
 
 /**
- * Retrieves the first domain that is eligible to G Suite either from, and in that order:
+ * Retrieves the first domain that is eligible to G Suite in the order:
  *
- *   - The domain from the site currently selected
- *   - The primary domain of the site
+ *   - The domain from the site currently selected i.e. `selectedDomainName`
+ *   - The primary domain of the site, if eligible
+ *   - The first eligible domain
  *
  * @param {String} selectedDomainName - domain name for the site currently selected by the user
  * @param {Array} domains - list of domain objects

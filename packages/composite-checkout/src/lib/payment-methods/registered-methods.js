@@ -22,6 +22,7 @@ export default function loadPaymentMethods() {
 	registerPaymentMethod( {
 		id: 'apple-pay',
 		LabelComponent: ApplePayLabel,
+		summaryText: 'Apple Pay',
 		PaymentMethodComponent: () => null,
 		BillingContactComponent: BillingFields,
 		SubmitButtonComponent: ApplePaySubmitButton,
@@ -30,6 +31,7 @@ export default function loadPaymentMethods() {
 	registerPaymentMethod( {
 		id: 'card',
 		LabelComponent: CreditCardLabel,
+		summaryText: 'Credit card',
 		PaymentMethodComponent: ( { isActive } ) => ( isActive ? <CreditCardFields /> : null ),
 		BillingContactComponent: BillingFields,
 		SubmitButtonComponent: CreditCardSubmitButton,
@@ -38,6 +40,7 @@ export default function loadPaymentMethods() {
 	registerPaymentMethod( {
 		id: 'stripe-card',
 		LabelComponent: CreditCardLabel,
+		summaryText: 'Credit card',
 		PaymentMethodComponent: StripeCreditCardFields,
 		BillingContactComponent: BillingFields,
 		SubmitButtonComponent: StripePayButton,
@@ -47,6 +50,7 @@ export default function loadPaymentMethods() {
 	registerPaymentMethod( {
 		id: 'paypal',
 		LabelComponent: PaypalLabel,
+		summaryText: 'Paypal',
 		PaymentMethodComponent: () => null,
 		BillingContactComponent: ApplePayBillingForm, // TODO: replace this
 		SubmitButtonComponent: PaypalSubmitButton,

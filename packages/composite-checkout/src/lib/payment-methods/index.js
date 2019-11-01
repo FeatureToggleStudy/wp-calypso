@@ -14,6 +14,7 @@ const paymentMethods = [];
 export function registerPaymentMethod( {
 	id,
 	LabelComponent,
+	summaryText,
 	PaymentMethodComponent,
 	BillingContactComponent,
 	SubmitButtonComponent,
@@ -22,6 +23,7 @@ export function registerPaymentMethod( {
 	if (
 		! id ||
 		! LabelComponent ||
+		! summaryText ||
 		! PaymentMethodComponent ||
 		! BillingContactComponent ||
 		! SubmitButtonComponent
@@ -31,6 +33,7 @@ export function registerPaymentMethod( {
 	paymentMethods.push( {
 		id,
 		LabelComponent,
+		summaryText,
 		PaymentMethodComponent,
 		BillingContactComponent,
 		SubmitButtonComponent,
